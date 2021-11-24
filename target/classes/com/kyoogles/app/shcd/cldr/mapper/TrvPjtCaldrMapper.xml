@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyoogles.app.shcd.cldr.mapper.TrvPjtCaldrMapper">
+
+    <select id="getTotMlgPnt" resultType="int">
+        SELECT IFNULL( SUM(PNT_ACRU) , 0)
+          FROM RST_PNT
+    </select>
+
+    <insert id="insertPntData">
+	    <selectKey keyProperty="seq" order="BEFORE" resultType="Integer">
+	      SELECT MAX(seq)+1 FROM pnt_date
+	    </selectKey>
+	    INSERT INTO pnt_date
+	    (  SEQ
+		  , PNT_TITLE
+		  , RST_DT
+		  , PNT_NO
+		  , REG_DT
+		  , REG_USER_ID
+		  , UPD_DT
+		  , UPD_USER_ID
+	    )
+	    VALUES
+	    ( IFNULL(${seq},1)
+	      , #{pntTitle}
+	      , #{rstDt}
+	      , #{pntNo}
+	      , NOW()
+	      , #{regUserId}
+	      , NOW()
+	      , #{updUserId}
+	    )
+    </insert>
+
+    <insert id="insertPntAcru">
+        UPDATE rst_pnt
+           SET pnt_acru = ((pnt_acru)+${pntNo})
+             , upd_dt = NOW()
+             , upd_user_id = #{updUserId}
+         WHERE pnt_title = #{pntTitle}
+    </insert>
+
+
+</mapper>
