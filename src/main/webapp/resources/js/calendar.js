@@ -55,7 +55,7 @@ const renderCalender = () => {
                    vDate = eval(date);
                 }
 
-                dates[i] += '<div><button type="button" class="btn btn-outline-success btn-sm" id=cal_'+ viewYear+''+(viewMonth+1)+''+vDate+ '>성공</button></div>';
+                dates[i] += '<div><button type="button" class="btn btn-outline-success btn-sm" id=cal_'+ viewYear+''+(viewMonth+1)+''+vDate+ '>S</button></div>';
              }
     dates[i] +='</div>';
   });
