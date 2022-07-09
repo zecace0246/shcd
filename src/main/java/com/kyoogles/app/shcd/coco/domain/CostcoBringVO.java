@@ -25,6 +25,7 @@ public class CostcoBringVO {
 	private String  prodImg05         ;
 
 
+
 	public String getProdCode() {
 		return prodCode;
 	}

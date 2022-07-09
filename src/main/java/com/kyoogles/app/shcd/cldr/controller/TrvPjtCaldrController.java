@@ -42,4 +42,5 @@ public class TrvPjtCaldrController {
     boolean result = this.tpcService.insertPntAcru(pdvo);
     return result ? new ResponseEntity("success", HttpStatus.OK) : new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
   }
+
 }

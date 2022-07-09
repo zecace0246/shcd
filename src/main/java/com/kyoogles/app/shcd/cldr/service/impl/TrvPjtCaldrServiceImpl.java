@@ -29,4 +29,5 @@ public class TrvPjtCaldrServiceImpl implements TrvPjtCaldrService {
     int result = this.mapper.insertPntAcru(pdvo);
     return (result > 0);
   }
+
 }

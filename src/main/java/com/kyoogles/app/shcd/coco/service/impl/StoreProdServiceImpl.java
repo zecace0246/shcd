@@ -24,5 +24,4 @@ public class StoreProdServiceImpl implements StoreProdService{
 		return spMapper.selectProdListTotalCount(cbVO);
 	}
 
-
 }

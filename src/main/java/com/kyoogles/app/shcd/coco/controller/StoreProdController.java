@@ -16,7 +16,6 @@ import com.kyoogles.app.shcd.common.domain.PageVO;
 @Controller
 @RequestMapping("/co")
 public class StoreProdController {
-
 	@Autowired
 	private StoreProdService spService;
 

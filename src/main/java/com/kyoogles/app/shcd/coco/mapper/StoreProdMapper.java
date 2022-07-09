@@ -11,5 +11,4 @@ public interface StoreProdMapper {
 
 	public int selectProdListTotalCount(CostcoBringVO cbVO);
 
-
 }
