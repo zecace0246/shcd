@@ -9,29 +9,38 @@
     </select>
 
     <select id="selectProdList" resultType="com.kyoogles.app.shcd.coco.domain.CostcoBringVO">
-        select prod_code            as prodCode
-			, cate01                as cate01
-			, sell_YN               as sellYn
-			, prod_name_kr          as prodNameKr
-			, prod_name_en          as prodNameEn
-			, prod_img01            as prodImg01
-			, prod_price            as prodPrice
-			, prod_discount_price   as prodDiscountPrice
-			, discount_date_end     as discountDateEnd
-			, discount_date_start   as discountDateStart
-			, prod_org_price        as prodOrgPrice
-			, price_change_yn       as priceChangeYn
-			, create_date           as createDate
-			, prod_first_price      as prodFirstPrice
-			, price_check           as priceCheck
-			, org_price_check       as orgPriceCheck
-			, update_date           as updateDate
-			, prod_img02            as prodImg02
-			, prod_img03            as prodImg03
-			, prod_img04            as prodImg04
-			, prod_img05            as prodImg05
-          from td_costco_bring
-         where 1=1
+        select tot.*
+          from (
+                select prod_code            as prodCode
+                    , cate01                as cate01
+                    , sell_YN               as sellYn
+                    , prod_name_kr          as prodNameKr
+                    , prod_name_en          as prodNameEn
+                    , prod_img01            as prodImg01
+                    , prod_price            as prodPrice
+                    , prod_discount_price   as prodDiscountPrice
+                    , discount_date_end     as discountDateEnd
+                    , discount_date_start   as discountDateStart
+                    , prod_org_price        as prodOrgPrice
+                    , CASE WHEN (prod_first_price <![CDATA[ < ]]> prod_price) THEN 'Y'
+                           WHEN (prod_first_price <![CDATA[ > ]]> prod_price) THEN 'X'
+                            ELSE 'N'
+                       END as priceChangeYn
+                    , create_date           as createDate
+                    , prod_first_price      as prodFirstPrice
+                    , price_check           as priceCheck
+                    , org_price_check       as orgPriceCheck
+                    , store_price           as storePrice
+                    , update_date           as updateDate
+                    , prod_img02            as prodImg02
+                    , prod_img03            as prodImg03
+                    , prod_img04            as prodImg04
+                    , prod_img05            as prodImg05
+                  from td_costco_bring
+                 where 1=1
+              ) tot
+          where 1=1
+          order by tot.priceChangeYn desc
     </select>
 
 </mapper>

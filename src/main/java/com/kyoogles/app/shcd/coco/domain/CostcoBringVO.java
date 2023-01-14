@@ -23,9 +23,16 @@ public class CostcoBringVO {
 	private String  prodImg03         ;
 	private String  prodImg04         ;
 	private String  prodImg05         ;
+	private String  storePrice        ;
 
 
 
+	public String getStorePrice() {
+		return storePrice;
+	}
+	public void setStorePrice(String storePrice) {
+		this.storePrice = storePrice;
+	}
 	public String getProdCode() {
 		return prodCode;
 	}

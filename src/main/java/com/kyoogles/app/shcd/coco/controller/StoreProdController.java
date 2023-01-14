@@ -33,4 +33,17 @@ public class StoreProdController {
 	    return "/coco/StoreProdList";
 	}
 
+
+	@RequestMapping(value = "/popup01", method = RequestMethod.GET)
+	  public String getPopup01(PageVO pageVO, CostcoBringVO cbVO,Model model) {
+
+		System.out.println(" pop prod code :::>> "+ cbVO.getProdCode() );
+		System.out.println(" pop store Price:::>> "+ cbVO.getStorePrice() );
+
+		model.addAttribute("prodCode", cbVO.getProdCode());
+		model.addAttribute("storePrice", cbVO.getStorePrice());
+
+	    return "/coco/popup01";
+	}
+
 }
