@@ -22,7 +22,7 @@ public class StoreProdController {
 	@RequestMapping(value = "/prodList", method = RequestMethod.GET)
 	  public String selectProdList(PageVO pageVO, CostcoBringVO cbVO,Model model) {
 
-		System.out.println("목록 페이지 들어 옴.");
+		System.out.println(" 상품 목록 페이지 들어 옴.");
 		int total = spService.selectProdListTotalCount(cbVO);
 
 		List<CostcoBringVO> prodList = spService.selectProdList(pageVO, cbVO);
