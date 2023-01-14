@@ -36,8 +36,28 @@
 <script>
 function doSave(){
 
+	var pUrl = "./saveProd";
 
+	$.ajax({
+		type : 'post',
+        url: pUrl,
+        data : {
+        	  prodCode : $('#prodCode').val()
+        	, storePrice : $('#storePrice').val()
+        },
+        success:function(data){
 
+        	alert(data);
+
+        	self.close();
+
+        },
+        error : function() {
+
+        }
+    });
+
+	self.close();
 
 }
 

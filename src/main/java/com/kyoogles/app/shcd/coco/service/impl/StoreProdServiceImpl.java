@@ -24,4 +24,14 @@ public class StoreProdServiceImpl implements StoreProdService{
 		return spMapper.selectProdListTotalCount(cbVO);
 	}
 
+	@Override
+	public String getProdUpDT(CostcoBringVO cbVO) {
+		return spMapper.getProdUpDT(cbVO);
+	}
+
+	@Override
+	public void saveProd(CostcoBringVO cbVO) {
+		spMapper.saveProd(cbVO);
+	}
+
 }

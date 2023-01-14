@@ -43,4 +43,17 @@
           order by tot.priceChangeYn desc
     </select>
 
+    <select id="getProdUpDT" resultType="String">
+        select MAX(date_format(update_date, '%Y-%m-%d' ))
+          from td_costco_bring
+         where 1=1
+    </select>
+
+    <update id="saveProd" parameterType="com.kyoogles.app.shcd.coco.domain.CostcoBringVO">
+        update td_costco_bring
+           set store_price = #{storePrice}
+        where prod_code = #{prodCode}
+
+    </update>
+
 </mapper>

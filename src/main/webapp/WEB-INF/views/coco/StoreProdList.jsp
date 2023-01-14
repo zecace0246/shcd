@@ -33,8 +33,6 @@ function doPopup(prodcd, sprice){
 
     window.open(pUrl+param, '스토어가격수정', 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
 
-
-
 }
 
 
@@ -62,7 +60,7 @@ function doPopup(prodcd, sprice){
     <div class="col-sm-12">
       <div class="card">
         <div class="card-header">
-          <h5>상품 관리</h5>
+          <h5>[ 상품목록 ] 최종 수정일 : <c:out value="${prodUpDT}" /></h5>
         </div>
 
         <div class="card-body">
@@ -103,9 +101,9 @@ function doPopup(prodcd, sprice){
                         <td class="text-center"><c:out value="${prod.prodFirstPrice}" /></td>
                         <td class="text-center"><c:out value="${prod.prodPrice}" /></td>
                         <td class="text-center"><c:out value="${prod.priceChangeYn}" /></td>
-                        <td class="text-center">
+                        <td class="text-center"><fmt:formatNumber value="${prod.storePrice}" type="currency" /> <br>
                             <!-- <a id="popup01" href="#" onclick="doPopup('<c:out value="${prod.prodCode}" />', '<c:out value="${prod.storePrice}" />');"><c:out value="${prod.storePrice}" />스토어가격수정</a> -->
-                            <button type="button" class="btn btn-primary" id="popup01" onclick="doPopup('<c:out value="${prod.prodCode}" />', '<c:out value="${prod.storePrice}" />');"><c:out value="${prod.storePrice}" />스토어가격수정</button>
+                            <button type="button" class="btn btn-primary" id="popup01" onclick="doPopup('<c:out value="${prod.prodCode}" />', '<c:out value="${prod.storePrice}" />');">스토어가격수정</button>
                         </td>
                       </tr>
                     </c:forEach>

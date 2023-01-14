@@ -9,5 +9,7 @@ public interface StoreProdService {
 
 	List<CostcoBringVO> selectProdList(PageVO pageVO, CostcoBringVO cbVO);
 	int selectProdListTotalCount(CostcoBringVO cbVO);
+	String getProdUpDT(CostcoBringVO cbVO);
+	void saveProd(CostcoBringVO cbVO);
 
 }

@@ -11,4 +11,8 @@ public interface StoreProdMapper {
 
 	public int selectProdListTotalCount(CostcoBringVO cbVO);
 
+	public String getProdUpDT(CostcoBringVO cbVO);
+
+	public void saveProd(CostcoBringVO cbVO);
+
 }
