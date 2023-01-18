@@ -51,7 +51,12 @@
 
     <update id="saveProd" parameterType="com.kyoogles.app.shcd.coco.domain.CostcoBringVO">
         update td_costco_bring
+           <if test="storePrice != null">
            set store_price = #{storePrice}
+           </if>
+           <if test="prodFirstPrice != null">
+           set prod_first_price = #{prodFirstPrice}
+           </if>
         where prod_code = #{prodCode}
 
     </update>

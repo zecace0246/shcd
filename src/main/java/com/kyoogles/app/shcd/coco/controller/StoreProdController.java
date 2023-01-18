@@ -39,6 +39,13 @@ public class StoreProdController {
 	    return "/coco/StoreProdList";
 	}
 
+	/**
+	 * 스토어 가격 수정 팝업
+	 * @param pageVO
+	 * @param cbVO
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/popup01", method = RequestMethod.GET)
 	public String getPopup01(PageVO pageVO, CostcoBringVO cbVO,Model model) {
 
@@ -51,6 +58,25 @@ public class StoreProdController {
 	    return "/coco/popup01";
 	}
 
+	/**
+	 * 최초가격수정 팝업
+	 * @param pageVO
+	 * @param cbVO
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/popup02", method = RequestMethod.GET)
+	public String getPopup02(PageVO pageVO, CostcoBringVO cbVO,Model model) {
+
+		System.out.println(" pop prod code :::>> "+ cbVO.getProdCode() );
+		System.out.println(" pop ProdFirst Price:::>> "+ cbVO.getProdFirstPrice() );
+
+		model.addAttribute("prodCode", cbVO.getProdCode());
+		model.addAttribute("firstPrice", cbVO.getProdFirstPrice());
+
+	    return "/coco/popup02";
+	}
+
     @RequestMapping(value = "/saveProd", method = { RequestMethod.POST })
     @ResponseBody // 자바 객체를 HTTP 응답 본문의 객체로 변환
 	public Object saveProd(CostcoBringVO cbVO, HttpServletResponse response, ModelMap model) throws Exception {
@@ -60,6 +86,7 @@ public class StoreProdController {
 		try {
 			System.out.println(" 저장 전 prod code :::>> "+ cbVO.getProdCode() );
 			System.out.println(" 저장 전 store Price:::>> "+ cbVO.getStorePrice() );
+			System.out.println(" 저장 전 ProdFirstPrice:::>> "+ cbVO.getProdFirstPrice() );
 
 		    spService.saveProd(cbVO);
 

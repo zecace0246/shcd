@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>스토어가격수정</title>
+<title>최초가격수정</title>
 <link rel="stylesheet" href="/shcd/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="/shcd/resources/css/calendar.css">
 
@@ -43,7 +43,7 @@ function doSave(){
         url: pUrl,
         data : {
         	  prodCode : $('#prodCode').val()
-        	, storePrice : $('#storePrice').val()
+        	, prodFirstPrice : $('#firstPrice').val()
         },
         success:function(data){
 
@@ -59,7 +59,7 @@ function doSave(){
 
 	opener.goList();
 
-	console.log(" 팝업 1 Close 전 ");
+    console.log(" 팝업2 Close 전 ");
 
 	self.close();
 
@@ -82,7 +82,7 @@ function doSave(){
               <input type="hidden" id="prodCode" value="<c:out value="${prodCode}"/>">
             </div>
             <div class="col-md-4 mb-3">
-              스토어가격 : <input type="text" class="form-control input-sm" id="storePrice" value="<c:out value="${storePrice}"/>" required>
+              최초가격 : <input type="text" class="form-control input-sm" id="firstPrice" value="<c:out value="${firstPrice}"/>" required>
             </div>
           </div>
 

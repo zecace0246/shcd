@@ -17,6 +17,12 @@
 <script src='/shcd/resources/js/jquery-modal.0.9.2.js' type="text/javascript"></script>
 
 <script>
+function goList(){
+
+	location.reload();
+
+}
+
 
 function doPopup(prodcd, sprice){
 
@@ -33,6 +39,21 @@ function doPopup(prodcd, sprice){
 
     window.open(pUrl+param, '스토어가격수정', 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
 
+}
+
+function doFpPopup(prodcd, fprice){
+	var pUrl = "./popup02";
+    var param = "?prodCode="+prodcd+"&prodFirstPrice="+fprice;
+    var _width = '400';
+    var _height = '200';
+
+    //var popup = window.open(pUrl+param, '스토어가격수정', 'top=10px,left=200px,width=400px,height=200px');
+
+    // 팝업을 가운데 위치시키기 위해 아래와 같이 값 구하기
+    var _left = Math.ceil(( window.screen.width - _width )/2);
+    var _top = Math.ceil(( window.screen.height - _height )/2);
+
+    window.open(pUrl+param, '최초가격수정', 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
 }
 
 
@@ -98,7 +119,9 @@ function doPopup(prodcd, sprice){
                         <td class="text-center"><c:out value="${prod.prodCode}" /></td>
                         <td class="text-center"><c:out value="${prod.prodNameKr}" /></td>
                         <td class="text-center"><c:out value="${prod.sellYn}" /></td>
-                        <td class="text-center"><c:out value="${prod.prodFirstPrice}" /></td>
+                        <td class="text-center"><c:out value="${prod.prodFirstPrice}" /><br>
+                          <button type="button" class="btn btn-primary" id="popup02" onclick="doFpPopup('<c:out value="${prod.prodCode}" />', '<c:out value="${prod.prodFirstPrice}" />');">최초가격수정</button>
+                        </td>
                         <td class="text-center"><c:out value="${prod.prodPrice}" /></td>
                         <td class="text-center"><c:out value="${prod.priceChangeYn}" /></td>
                         <td class="text-center"><fmt:formatNumber value="${prod.storePrice}" type="currency" /> <br>
